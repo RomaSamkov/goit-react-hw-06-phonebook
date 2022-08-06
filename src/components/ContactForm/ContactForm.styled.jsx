@@ -41,8 +41,16 @@ export const Button = styled.button`
 
 export const InputName = styled.input`
   margin-left: 28px;
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
 `;
 
 export const InputNumber = styled.input`
   margin-left: 10px;
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
 `;

@@ -8,4 +8,5 @@ export const Container = styled.div`
   background-color: rgb(181, 198, 236);
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   text-align: center;
+  opacity: 0.9;
 `;
