@@ -20,7 +20,7 @@ const ContactList = () => {
           <ContactItem key={id} id={id} name={name} number={number} />
         ))
       ) : (
-        <Notification message="No contacts yet :))" />
+        <Notification message="No contacts" />
       )}
     </ListContacts>
   );
