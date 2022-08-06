@@ -16,7 +16,7 @@ const ContactList = () => {
   return (
     <ListContacts>
       {contacts.length > 0 && (
-        <AllContacts>All Contacts: {contacts.length}</AllContacts>
+        <AllContacts>All Contacts : {contacts.length}</AllContacts>
       )}
       {contacts.length > 0 ? (
         contacts.map(({ id, name, number }) => (
