@@ -1,32 +1,29 @@
-import PropTypes from 'prop-types';
-import { ListContacts, Item, Contact, Button } from './ContactList.styled';
+import ContactItem from 'components/ContactItem';
+import Notification from 'components/Notification';
+import { useSelector } from 'react-redux';
+import { ListContacts } from './ContactList.styled';
 
-const ContactList = ({ contacts, onDeleteContact }) => {
+const getFilteredContacts = (items, filter) =>
+  items.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+const ContactList = () => {
+  const items = useSelector(state => state.contacts.items);
+  const filter = useSelector(state => state.contacts.filter);
+  const contacts = getFilteredContacts(items, filter);
+
   return (
     <ListContacts>
-      {contacts.map(({ id, name, number }) => (
-        <Item key={id}>
-          <Contact>
-            {name}........ {number}
-          </Contact>
-          <Button type="submit" onClick={() => onDeleteContact(id)}>
-            Delete
-          </Button>
-        </Item>
-      ))}
+      {contacts.length > 0 ? (
+        contacts.map(({ id, name, number }) => (
+          <ContactItem key={id} id={id} name={name} number={number} />
+        ))
+      ) : (
+        <Notification message="No contacts yet :))" />
+      )}
     </ListContacts>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDeleteContact: PropTypes.func,
 };
 
 export default ContactList;
