@@ -1,7 +1,7 @@
 import ContactItem from 'components/ContactItem';
 import Notification from 'components/Notification';
 import { useSelector } from 'react-redux';
-import { ListContacts } from './ContactList.styled';
+import { AllContacts, ListContacts } from './ContactList.styled';
 
 const getFilteredContacts = (items, filter) =>
   items.filter(contact =>
@@ -15,6 +15,9 @@ const ContactList = () => {
 
   return (
     <ListContacts>
+      {contacts.length > 0 && (
+        <AllContacts>All contacts: {contacts.length}</AllContacts>
+      )}
       {contacts.length > 0 ? (
         contacts.map(({ id, name, number }) => (
           <ContactItem key={id} id={id} name={name} number={number} />

@@ -8,3 +8,7 @@ export const ListContacts = styled.ul`
   padding: 20px;
   border-radius: 50px;
 `;
+
+export const AllContacts = styled.h3`
+  margin-bottom: 20px;
+`;
